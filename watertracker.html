@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Intake Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #ecf6ff;
+      border-left: 4px solid #3498db;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
 
+<div class="container">
+  <h1>Daily Water Intake Guide</h1>
+
+  <label>Age (years)</label>
+  <input type="number" id="age">
+
+  <label>Weight (kg)</label>
+  <input type="number" id="weight">
+
+  <label>Height (cm)</label>
+  <input type="number" id="height">
+
+  <label>Gender</label>
+  <select id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  <label>Health Condition</label>
+  <select id="health">
+    <option value="none">None</option>
+    <option value="kidney">Kidney Issues</option>
+    <option value="heart">Heart Condition</option>
+    <option value="pregnant">Pregnant</option>
+  </select>
+
+  <button onclick="calculateWater()">Calculate</button>
+
+  <div id="output" class="result" style="display:none;"></div>
+</div>
+
+<script>
+function calculateWater() {
+  let age = parseInt(document.getElementById("age").value);
+  let weight = parseFloat(document.getElementById("weight").value);
+  let height = parseFloat(document.getElementById("height").value);
+  let gender = document.getElementById("gender").value;
+  let health = document.getElementById("health").value;
+
+  if (!age || !weight || !height) {
+    alert("Please fill all fields properly.");
+    return;
+  }
+
+  // Base calculation: 35 ml per kg
+  let water = weight * 35;
+
+  // Adjustments
+  if (age > 55) water *= 0.9;
+  if (gender === "male") water *= 1.05;
+  if (height > 180) water *= 1.05;
+
+  // Health adjustments
+  let note = "";
+  if (health === "kidney") {
+    water *= 0.8;
+    note = "Since you mentioned kidney concerns, it's best to be cautious with fluid intake and consult a doctor.";
+  } else if (health === "heart") {
+    water *= 0.85;
+    note = "With heart conditions, fluid balance matters. Consider medical advice before making changes.";
+  } else if (health === "pregnant") {
+    water *= 1.1;
+    note = "During pregnancy, hydration needs are slightly higher to support your body.";
+  }
+
+  let liters = (water / 1000).toFixed(2);
+
+  let message = `
+    Based on what you've shared, your body would likely benefit from around <strong>${liters} liters</strong> of water each day.<br><br>
+    This is not a strict rule, but a thoughtful estimate to help you stay balanced and energized.<br><br>
+    ${note}
+  `;
+
+  let output = document.getElementById("output");
+  output.style.display = "block";
+  output.innerHTML = message;
+}
+</script>
+
+</body>
+</html>
