@@ -1,1 +1,87 @@
+PROJECT REPORT
 
+Title: Personalized Water Intake Tracker
+
+
+1. Problem Statement
+
+
+In daily life, most people either underestimate or overestimate how much water they should drink. The common “8 glasses a day” rule is too generic and ignores important personal factors such as body weight, age, lifestyle, and health conditions.
+This leads to poor hydration habits, which can affect energy levels, concentration, digestion, and overall health.
+The problem I chose to address was:
+How can we provide a simple, personalized way for individuals to understand their daily water intake needs?
+
+
+2. Why This Problem Matters
+
+
+Water intake is a basic yet often neglected aspect of health. While people track calories, workouts, and sleep, hydration is usually overlooked or handled casually.
+The issue becomes more important because:
+Hydration needs vary from person to person
+Health conditions can change water requirements
+Lack of awareness leads to inconsistent habits
+A simple and accessible solution can help users make better daily decisions without needing complex medical knowledge.
+
+
+3. Approach to the Solution
+
+
+I decided to build a web-based tool using HTML, CSS, and JavaScript that calculates recommended daily water intake based on user input.
+The approach included:
+Taking user inputs:
+Age
+Weight
+Height
+Gender
+Health conditions
+Applying a basic scientific formula (water intake per kg of body weight)
+Adjusting the result based on:
+Age (slightly reduced needs for older individuals)
+Gender differences
+Height (larger body size factor)
+Health conditions (modifications for safety)
+Presenting the output in a clear and conversational way, rather than just showing numbers
+The goal was not just calculation, but making the result understandable and relatable.
+
+
+4. Key Decisions
+
+
+During development, a few important decisions shaped the project:
+a. Simplicity over complexity
+Instead of building a complicated system, I focused on a clean and usable interface that anyone can understand.
+b. Human-centered output
+Rather than displaying only numbers, I added short explanations so users understand why a certain amount is suggested.
+c. No external frameworks
+The project uses only basic HTML, CSS, and JavaScript, making it lightweight and easy to run.
+d. Health-sensitive adjustments
+Special conditions like kidney or heart issues were handled carefully by reducing or modifying recommendations and adding advisory notes.
+
+
+5. Challenges Faced
+
+
+a. Balancing accuracy and simplicity
+It was challenging to keep the calculation scientifically reasonable while still keeping the logic simple enough to implement.
+b. Handling health conditions
+Different medical conditions require precise advice, but since this is not a medical tool, I had to ensure the output remained safe and general.
+c. Making the UI feel natural
+Avoiding a robotic interface and making it feel more like a helpful guide required careful wording and layout.
+
+
+6. What I Learned
+
+
+This project helped me understand:
+How to translate a real-world problem into a functional web solution
+The importance of user experience, not just functionality
+Basic logic building in JavaScript
+How small design choices can make a tool feel more intuitive
+The value of keeping things simple but meaningful
+
+
+7. Conclusion
+
+
+The water intake tracker provides a practical and personalized way for users to understand their hydration needs. While it is not a medical tool, it serves as a helpful guide for building better daily habits.
+The project demonstrates how even a simple application can make everyday decisions clearer and more informed.
